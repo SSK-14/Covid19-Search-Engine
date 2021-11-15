@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, '/home/sanjay/Documents/sem9/Package/covid19-search-engine')
+sys.path.insert(1, '/home/sanjay/Documents/sem9/covid19-search-engine-master')
 
 import os
 import re

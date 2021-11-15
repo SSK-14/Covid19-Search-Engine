@@ -57,3 +57,74 @@ pip install -r requirements.txt
   $ cd data/local_news_data
   $ python process.py
   ```
+
+### Search Engine
+
+Then, to run the basic search engine, use the following command, and type your query once the search engine is initialized. (**Note:** It takes approximately 3-5 mins to initialize the search engine)
+```
+$ python deploy.py
+```
+
+**Command line arguments**
+
+1. `--personalize`: Runs the search engine with mimicked user personalization (biased query results). **Note:** With this mode enabled we need search history, to be able to personalize towards the type of content the user is biased. So, search for terms that show the user's preferences first and then key in your normal queries to see the improved and personalized results. _Example:_
+  ```
+  $ python deploy.py --personalize
+  ```
+2. `--embedding`: Chooses the word embedding method to use. **Choose from:** `["one-hot", "word2vec-google-news-300", "glove-twitter-100", "glove-wiki-gigaword-100", "glove-wiki-gigaword-200", "fasttext-wiki-news-subwords-300"]`. _Example:_
+  ```
+  $ python deploy.py --embedding "one-hot"
+  ```
+3. `--weighting_scheme`: Chooses the weighting scheme to use for computing document vectors from word vectors. **Choose from:** `["mean", "tf-idf", "sif", "usif"]`. _Example:_
+  ```
+  $ python deploy.py --weighting_scheme "tf-idf"
+  ```
+4. `--top_k`: Number of results to return for each query. _Example:_
+  ```
+  $ python deploy.py --top_k 5
+  ```
+5. `--expand_query`: Enables query expansion based on GloVe (glove-wiki-gigaword-100). _Example:_
+  ```
+  $ python deploy.py --expand_query
+  ```
+
+## Types of Search Queries to Try:
+
+- **Default**
+  - *Command:* `python deploy.py`
+  - *Examples:*
+    - *General:*
+      - "masks"
+      - "vaccine"
+      - "ventilators"
+    - *With mis-spellings*
+      - "stayy at homew ordero"
+      - "johnss hopoins universitio"
+    - *With acronyms or contractions*
+      - "JHU"
+      - "VP"
+      - "ICU"
+      - "CDC"
+      - "cases last wk"
+- **Pretrained Word Embeddings**
+  - *Command:* `python deploy.py --embedding "word2vec-google-news-300" --weighting_scheme "usif"`
+  - *Effect:* Results capture the semantics of the query
+  - *Examples:*
+    - "employment"
+    - "grocery"
+    - "medicine"
+- **User Personalization**
+  - *Command:* `python deploy.py --personalize`
+  - *Effect:* Results are personalized towards the user's biases
+  - *Examples:*
+    - search for "costco" then "social distancing" AND just "social distancing" in a fresh session
+    - search for "sports" then "lakers" AND just "lakers" in a fresh session
+- **Query Expansion**
+  - *Command:* `python deploy.py --expand_query`
+  - *Effect:* Gives more concentrated and meaningful results that talk about the query's topic
+  - *Examples:*
+    - "recession"
+    - "economy"
+    - "pizza"
+
+**Note**: Try the *Pretrained Word Embeddings*, *User Personalization*, and *Query Expansion* query examples in the default mode (`python deploy.py`) also to notice how the search results are improved using these techniques.

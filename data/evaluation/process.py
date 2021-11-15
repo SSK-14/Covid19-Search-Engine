@@ -203,33 +203,33 @@ def relabel_ID():
 
 def main():
 
-    # CISI Dataset data/evaluation/cisi/CISI.ALL
-    clean_raw('data/evaluation/raw/cisi/CISI.ALL', 'data/evaluation/cisi/CISI.ALL')
-    clean_query('data/evaluation/raw/cisi/CISI.QRY', 'data/evaluation/cisi/CISI.QRY')
-    clean_rel('data/evaluation/raw/cisi/CISI.REL', 'data/evaluation/cisi/CISI.REL')
-    remove_query('data/evaluation/cisi/CISI.REL', 'data/evaluation/cisi/CISI.QRY', 'data/evaluation/cisi/reltemp', 'data/evaluation/cisi/querytemp')
-    relabel_query('data/evaluation/cisi/reltemp', 'data/evaluation/cisi/querytemp', 'data/evaluation/cisi/CISI.REL', 'data/evaluation/cisi/CISI.QRY')
+    # CISI Dataset
+    clean_raw('raw/cisi/CISI.ALL', 'cisi/CISI.ALL')
+    clean_query('raw/cisi/CISI.QRY', 'cisi/CISI.QRY')
+    clean_rel('raw/cisi/CISI.REL', 'cisi/CISI.REL')
+    remove_query('cisi/CISI.REL', 'cisi/CISI.QRY', 'cisi/reltemp', 'cisi/querytemp')
+    relabel_query('cisi/reltemp', 'cisi/querytemp', 'cisi/CISI.REL', 'cisi/CISI.QRY')
 
-    # # CACM Dataset
-    # clean_raw('raw/cacm/cacm.all', 'cacm/cacm.all')
-    # clean_query('raw/cacm/query.text', 'cacm/query.text')
-    # clean_rel('raw/cacm/qrels.text', 'cacm/qrels.text')
-    # remove_query('cacm/qrels.text', 'cacm/query.text', 'cacm/reltemp', 'cacm/querytemp')
-    # relabel_query('cacm/reltemp', 'cacm/querytemp', 'cacm/qrels.text', 'cacm/query.text')
+    # CACM Dataset
+    clean_raw('raw/cacm/cacm.all', 'cacm/cacm.all')
+    clean_query('raw/cacm/query.text', 'cacm/query.text')
+    clean_rel('raw/cacm/qrels.text', 'cacm/qrels.text')
+    remove_query('cacm/qrels.text', 'cacm/query.text', 'cacm/reltemp', 'cacm/querytemp')
+    relabel_query('cacm/reltemp', 'cacm/querytemp', 'cacm/qrels.text', 'cacm/query.text')
 
-    # # MED Dataset
-    # clean_raw('raw/med/MED.ALL', 'med/MED.ALL')
-    # clean_query('raw/med/MED.QRY', 'med/MED.QRY')
-    # clean_rel('raw/med/MED.REL', 'med/MED.REL')
-    # remove_query('med/MED.REL', 'med/MED.QRY', 'med/reltemp', 'med/querytemp') # No queries to remove
+    # MED Dataset
+    clean_raw('raw/med/MED.ALL', 'med/MED.ALL')
+    clean_query('raw/med/MED.QRY', 'med/MED.QRY')
+    clean_rel('raw/med/MED.REL', 'med/MED.REL')
+    remove_query('med/MED.REL', 'med/MED.QRY', 'med/reltemp', 'med/querytemp') # No queries to remove
 
-    # # CRAN Dataset
-    # clean_raw('raw/cran/cran.all', 'cran/cran.all')
-    # clean_query('raw/cran/cran.qry', 'cran/cran.qry')
-    # clean_rel('raw/cran/cran.rel', 'cran/cran.rel')
+    # CRAN Dataset
+    clean_raw('raw/cran/cran.all', 'cran/cran.all')
+    clean_query('raw/cran/cran.qry', 'cran/cran.qry')
+    clean_rel('raw/cran/cran.rel', 'cran/cran.rel')
 
-    # remove_query('cran/cran.rel', 'cran/cran.qry', 'cran/reltemp', 'cran/querytemp')
-    # relabel_query('cran/reltemp', 'cran/querytemp', 'cran/cran.rel', 'cran/cran.qry')
+    remove_query('cran/cran.rel', 'cran/cran.qry', 'cran/reltemp', 'cran/querytemp')
+    relabel_query('cran/reltemp', 'cran/querytemp', 'cran/cran.rel', 'cran/cran.qry')
 
     # TIME Dataset
     # remove_empty_lines('raw/time/TIME.RAW', 'raw/time/TIME.ALL')
