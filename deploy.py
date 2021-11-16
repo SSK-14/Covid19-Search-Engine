@@ -1,6 +1,6 @@
 # import pyximport; pyximport.install(pyimport=True)
 import sys
-sys.path.insert(2, '/home/sanjay/Documents/sem9/covid19-search-engine-master')
+sys.path.insert(2, '/home/sanjay/Documents/sem9/Pakages/covid19-search-engine')
 
 import argparse
 import warnings

@@ -1,7 +1,7 @@
 #import pyximport; pyximport.install(pyimport=True)
 
 import sys
-sys.path.insert(1, '/home/sanjay/Documents/sem9/covid19-search-engine-master')
+sys.path.insert(1, '/home/sanjay/Documents/sem9/Pakages/covid19-search-engine')
 
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
